@@ -53,21 +53,36 @@ def extract() :
 
 
 def transform(dfs_sql, dfs_acc):
-    #renaming columns
+    rename_maps = {
+        "Customers": {
+            "ID": "CustomerID",
+            "Last Name": "LastName",
+            "First Name": "FirstName",
+        },
+        "Employees": {
+            "ID": "EmployeeID",
+            "Last Name": "LastName",
+            "First Name": "FirstName",
+        },
+        "Orders": {
+            "Order ID": "OrderID",
+            "Order Date": "OrderDate",
+            "Shipped Date": "ShippedDate",
+        }
+    }
 
-    #rename IDs + remove it spaces
-    for df_name , df_acc in dfs_acc.items() :
-        print(f"table ====> {df_name}")
-        # remove titles spaces
+    for table_name, df_acc in dfs_acc.items():
+        # remove spaces from col & table names
+        df_acc.columns = [col.replace(" ", "") for col in df_acc.columns]
+        table_name = table_name.replace(" ", "")
 
+        # rename columns
+        if table_name in rename_maps:
+            df_acc.rename(columns=rename_maps[table_name], inplace=True)
+            print(f"Renamed columns in table: {table_name}")
 
-        if "ID" in df_acc.columns[0]:
-            print(f"table {df_name} has ID  :  {df_acc.columns[0]}")
-            clean_col = df_name.replace(" ", "")
-            dfs_acc[df_name] = df_acc.rename(columns={f'{df_acc.columns[0]}': f'{clean_col}ID'})
-            print("done")
+        print(f"table ==> {table_name}, its col ===> {df_acc.columns}")
 
-    print(dfs_acc)
     return dfs_sql, dfs_acc
 
 
