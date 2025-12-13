@@ -1,5 +1,5 @@
 import pyodbc
-import DatabaseConfig
+from DatabaseConfig import DatabaseConfig
 
 
 def create_datawarehouse():
