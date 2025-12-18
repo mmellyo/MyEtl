@@ -31,23 +31,6 @@ This project implements a complete Data Warehouse and Business Intelligence solu
 | Data Processing  | NumPy, Pandas                  |
 | Connectivity     | ODBC Driver 17                 |
 
-## Project Structure
-
-northwind-dw-project/
-├── etl.py               # Main ETL orchestration class
-├── dashboard.py         # Streamlit dashboard application
-├── DatabaseConfig.py    # Database connection configurations
-├── create_dw.py         # Data warehouse creation scripts
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-├── data/
-│   ├── processed/       # Transformed data for dashboard
-│   └── archive/         # Historical data backups
-└── logs/
-    ├── etl.log          # ETL process logs
-    └── dashboard.log    # Dashboard access logs
-
-
 ## Getting Started
 
 ### Prerequisites
