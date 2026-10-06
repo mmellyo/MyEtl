@@ -121,10 +121,4 @@ Cloud migration to Azure, real-time streaming
 
 Machine learning integration, natural language queries
 
-## Author
-Melissa AMERYAHIA
 
-Student ID: 232331706307
-
-
-Section: B | Group: 3
